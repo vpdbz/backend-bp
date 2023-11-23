@@ -1,0 +1,45 @@
+version: '3.9'
+services:
+  client:
+    container_name: bp-client-service
+    image: bp-client-service:1.0.0
+    ports:
+      - 8090:8090
+    environment:
+      - SERVER_PORT=8090
+      - DATASOURCE_CONNECTION_TIMEOUT=20000
+      - DATASOURCE_MAXIMUM_POOL_SIZE=5
+      - JPA_SHOW_SQL=true
+      - JPA_PROPERTIES_HIBERNATE_FORMAT_SQL=true
+      - JPA_PROPERTIES_HIBERNATE_GENERATE_STATISTICS=true
+      - LOGGING_LEVEL_ORG_HIBERNATE_SQL=DEBUG
+      - LOGGING_LEVEL_ORG_HIBERNATE_TYPE_DESCRIPTOR_SQL=TRACE
+      - DATASOURCE_URL=jdbc:postgresql://host.docker.internal:5432/bpclient
+      - DATASOURCE_DRIVER_CLASSNAME=org.postgresql.Driver
+      - DATASOURCE_USERNAME=bpclient
+      - DATASOURCE_PASSWORD=admin
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  account:
+    container_name: bp-account-service
+    image: bp-account-service:1.0.0
+    ports:
+      - 8100:8100
+    depends_on:
+      - client
+    environment:
+      - SERVER_PORT=8100
+      - DATASOURCE_CONNECTION_TIMEOUT=20000
+      - DATASOURCE_MAXIMUM_POOL_SIZE=5
+      - JPA_SHOW_SQL=true
+      - JPA_PROPERTIES_HIBERNATE_FORMAT_SQL=true
+      - JPA_PROPERTIES_HIBERNATE_GENERATE_STATISTICS=true
+      - LOGGING_LEVEL_ORG_HIBERNATE_SQL=DEBUG
+      - LOGGING_LEVEL_ORG_HIBERNATE_TYPE_DESCRIPTOR_SQL=TRACE
+      - DATASOURCE_URL=jdbc:postgresql://host.docker.internal:5432/bpaccount
+      - DATASOURCE_DRIVER_CLASSNAME=org.postgresql.Driver
+      - DATASOURCE_USERNAME=bpaccount
+      - DATASOURCE_PASSWORD=admin
+      - APP_CLIENT_URL=http://bp-client-service:8100/api/v1/clientes
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

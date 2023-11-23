@@ -1,0 +1,349 @@
+{
+	"info": {
+		"_postman_id": "f30d7c44-c638-4642-b5cb-f862789d9a77",
+		"name": "BP-Account-Movement",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14455272"
+	},
+	"item": [
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "PUT",
+					"item": [
+						{
+							"name": "Update Account",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"numero\": \"123123\",\r\n    \"tipo\": \"Ahorro\",\r\n    \"saldo\": 2000,\r\n    \"estado\": true,\r\n    \"cliente\": \"Victor\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_account_local}}/1",
+									"host": [
+										"{{url_account_local}}"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PATCH",
+					"item": [
+						{
+							"name": "Patch Status",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"cliente\": \"Victor 2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_account_local}}/1",
+									"host": [
+										"{{url_account_local}}"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"item": [
+						{
+							"name": "Delete Account",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url_account_local}}/4",
+									"host": [
+										"{{url_account_local}}"
+									],
+									"path": [
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "Get Account",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_account_local}}/1",
+									"host": [
+										"{{url_account_local}}"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Accounts",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_account_local}}",
+									"host": [
+										"{{url_account_local}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "Create Account",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"numero\": \"443223\",\r\n    \"tipo\": \"Corriente\",\r\n    \"saldo\": 10000,\r\n    \"estado\": true,\r\n    \"cliente\": \"Victor\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_account_local}}",
+									"host": [
+										"{{url_account_local}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Movement",
+			"item": [
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "Create Movement",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"numero\": \"443223\",\r\n    \"tipo\": \"Corriente\",\r\n    \"fecha\": \"22/11/2023\",\r\n    \"movimiento\": 2000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_movement_local}}",
+									"host": [
+										"{{url_movement_local}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PUT",
+					"item": [
+						{
+							"name": "Update Movement",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"numero\": \"123123\",\r\n    \"tipo\": \"Ahorro\",\r\n    \"fecha\": \"21/11/2023\",\r\n    \"movimiento\": -2000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_movement_local}}/2",
+									"host": [
+										"{{url_movement_local}}"
+									],
+									"path": [
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PATCH",
+					"item": [
+						{
+							"name": "Patch Status",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"movimiento\": 200\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_movement_local}}/2",
+									"host": [
+										"{{url_movement_local}}"
+									],
+									"path": [
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"item": [
+						{
+							"name": "Delete Movement",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url_movement_local}}/3",
+									"host": [
+										"{{url_movement_local}}"
+									],
+									"path": [
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "Get Movement",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_movement_local}}/1",
+									"host": [
+										"{{url_movement_local}}"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Movements",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url_movement_local}}",
+									"host": [
+										"{{url_movement_local}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Report",
+			"item": [
+				{
+					"name": "Get Report",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_report_local}}?fecha_ini=01/11/2023&fecha_fin=22/11/2023&cliente=Victor",
+							"host": [
+								"{{url_report_local}}"
+							],
+							"query": [
+								{
+									"key": "fecha_ini",
+									"value": "01/11/2023"
+								},
+								{
+									"key": "fecha_fin",
+									"value": "22/11/2023"
+								},
+								{
+									"key": "cliente",
+									"value": "Victor"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
